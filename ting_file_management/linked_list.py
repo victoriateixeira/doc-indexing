@@ -1,4 +1,4 @@
-from node import Node
+from ting_file_management.node import Node
 
 
 class LinkedList:
