@@ -17,11 +17,22 @@ def process(path_file, instance):
 
 def remove(instance):
     if not instance.__len__():
-        print("Não há elementos")
+        return print("Não há elementos")
 
     file = instance.dequeue()
     print(f"Arquivo {file} removido com sucesso")
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        path_file = instance.search(position)
+        out = txt_importer(path_file)
+        out_dict = {
+            "nome_do_arquivo": path_file,
+            "qtd_linhas": len(out),
+            "linhas_do_arquivo": out,
+        }
+        print(str(out_dict))
+
+    except IndexError:
+        sys.stderr.write("Posição inválida")
